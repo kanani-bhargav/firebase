@@ -30,12 +30,9 @@ const Header = () => {
             </NavLink>
             <NavLink className="nav-link" to='/'>Login</NavLink>
             <NavLink className="nav-link" to="/signup">Signup</NavLink>
-            <NavLink className="nav-link icon">
-              <i className="bx bx-search-alt-2"></i>
-            </NavLink>
-            <NavLink className="nav-link icon">
-              <i className="bx bx-shopping-bag"></i>
-            </NavLink>
+            <NavLink className="nav-link" to="/firestore">Firestore</NavLink>
+            <NavLink className="nav-link" to="/realdb">Real time database</NavLink>
+            <NavLink className="nav-link" to="/storage">Storage</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

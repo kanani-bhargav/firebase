@@ -7,7 +7,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../component/Firebase";
+import { auth,realtimeDB } from "../component/Firebase";
+import { ref, set } from "firebase/database";
 
 const userAuthContext = createContext();
 
@@ -22,6 +23,9 @@ export function UserAuthContextProvider({ children }) {
   }
   function logOut() {
     return signOut(auth);
+  }
+  function putData(key,data){
+    set(ref(realtimeDB,key),data)
   }
   function googleSignIn() {
     const googleAuthProvider = new GoogleAuthProvider();
@@ -41,7 +45,7 @@ export function UserAuthContextProvider({ children }) {
 
   return (
     <userAuthContext.Provider
-      value={{ user, logIn, signUp, logOut, googleSignIn }}
+      value={{ user, logIn, signUp, logOut, googleSignIn, putData}}
     >
       {children}
     </userAuthContext.Provider>
